@@ -19,22 +19,22 @@ cd serverless_ml_runtime
 
 ### 2. Upload to Databricks
 
-**Option A: Via Databricks UI**
+**Option A: Via Git Integration**
+1. In Databricks, go to **Workspace** > **Repos**
+2. Click **Add Repo**
+3. Enter: `https://github.com/jneil17/serverless_ml_runtime`
+4. Click **Create Repo**
+
+**Option B: Via Databricks UI**
 1. In your Databricks workspace, go to **Workspace** > **Users** > your email
 2. Right-click and select **Import**
 3. Upload the YAML files from this repo (or drag and drop)
 4. Recommended location: `/Workspace/Shared/environments/`
 
-**Option B: Via Databricks CLI**
+**Option C: Via Databricks CLI**
 ```bash
 databricks workspace import-dir . /Workspace/Shared/environments/ml-runtimes
 ```
-
-**Option C: Via Git Integration**
-1. In Databricks, go to **Workspace** > **Repos**
-2. Click **Add Repo**
-3. Enter: `https://github.com/jneil17/serverless_ml_runtime`
-4. Click **Create Repo**
 
 ### 3. Use in a Notebook
 
