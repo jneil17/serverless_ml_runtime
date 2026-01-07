@@ -1,0 +1,64 @@
+# Databricks ML Essential - Python 3.12 Compatible (No TensorFlow)
+# For serverless compute environment version 4 (Python 3.12.3)
+# FIXED: Avoids numpy 2.1 conflicts by excluding TensorFlow
+
+environment_version: '4'
+
+dependencies:
+  - --index-url https://pypi.org/simple
+  
+  # === CORE ML FRAMEWORKS ===
+  # TensorFlow omitted - doesn't support numpy 2.1.x yet
+  # Use PyTorch instead:
+  - torch==2.5.1
+  - torchvision==0.20.1
+  
+  # === MACHINE LEARNING ===
+  # Core packages already installed in serverless env 4:
+  # - numpy 2.1.3
+  # - pandas 2.2.3
+  # - scipy 1.15.1
+  # - scikit-learn 1.6.1
+  # - matplotlib 3.10.0
+  # - seaborn 0.13.2
+  # - plotly 5.24.1
+  
+  - xgboost==2.1.3
+  - lightgbm==4.5.0
+  
+  # === NLP & TRANSFORMERS ===
+  - transformers==4.47.1
+  - datasets==3.2.0
+  - tokenizers==0.21.0
+  - sentence-transformers==3.3.1
+  
+  # === DISTRIBUTED TRAINING ===
+  - accelerate==1.2.1
+  - ray[default]==2.40.0
+  
+  # === MODEL INTERPRETATION ===
+  - shap==0.46.0
+  
+  # === UTILITIES ===
+  - tqdm==4.67.1
+  - h5py==3.12.1
+  
+  # === CLOUD SDKs (already installed) ===
+  # - boto3 1.36.2
+  # - azure-storage-blob 12.23.0
+  # - google-cloud-storage 3.1.0
+  
+  # === ADDITIONAL ML ===
+  - optuna==4.2.0
+
+# NOTES:
+# - ~15 packages (rest are pre-installed)
+# - TensorFlow excluded due to numpy 2.1 incompatibility
+# - Fast startup time: ~2 minutes
+# - Focuses on PyTorch + NLP ecosystem
+#
+# To add TensorFlow later (when compatible):
+# %pip install tensorflow>=2.19.0  # When released with numpy 2.1 support
+#
+# Or use TensorFlow with older numpy (not recommended):
+# %pip install 'numpy<2.1' tensorflow==2.18.0 --force-reinstall
